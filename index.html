@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rohit Mart — Shop</title>
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Icons & Font -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Announcement -->
+  <div class="announcement">
+    <span>🎉 Independence Day Sale — Up to 50% OFF | Free shipping over ₹999</span>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="header">
+    <div class="container nav">
+      <button class="menu-btn" id="menuBtn"><i class="ri-menu-line"></i></button>
+
+      <a class="brand" href="#">
+        <i class="ri-store-2-line"></i>
+        <span>Rohit Mart</span>
+      </a>
+
+      <form class="search" id="searchForm">
+        <i class="ri-search-line"></i>
+        <input id="searchInput" type="search" placeholder="Search for products, brands and more"/>
+      </form>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="openCart" aria-label="Open cart">
+          <i class="ri-shopping-bag-3-line"></i>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <a class="auth" href="#" title="Login / Sign up"><i class="ri-user-line"></i><span>Account</span></a>
+      </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="container tabs" id="categoryTabs">
+      <button class="tab active" data-cat="all">All</button>
+      <button class="tab" data-cat="fashion">Fashion</button>
+      <button class="tab" data-cat="electronics">Electronics</button>
+      <button class="tab" data-cat="home">Home</button>
+      <button class="tab" data-cat="sports">Sports</button>
+      <button class="tab" data-cat="beauty">Beauty</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero container">
+    <div class="hero-content">
+      <h1>Build your style with <span>Rohit Mart</span> Store</h1>
+      <p>Premium products. Fast delivery. Smooth shopping — Shopify-style UI made with pure HTML, CSS & JS.</p>
+      <a href="#products" class="cta">Shop Now</a>
+    </div>
+    <picture class="hero-art">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1400&auto=format&fit=crop" alt="Hero banner"/>
+    </picture>
+  </section>
+
+  <!-- Content -->
+  <main class="container content">
+    <!-- Filters -->
+    <aside class="filters" id="filters">
+      <div class="filter-card">
+        <h3>Price</h3>
+        <div class="price">
+          <input type="range" min="0" max="5000" value="5000" id="priceRange">
+          <div class="price-row">
+            <span>₹0</span>
+            <span id="priceValue">₹5000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-card">
+        <h3>Sort by</h3>
+        <select id="sortSelect">
+          <option value="relevant">Most Relevant</option>
+          <option value="low-high">Price: Low to High</option>
+          <option value="high-low">Price: High to Low</option>
+          <option value="az">Name: A → Z</option>
+          <option value="za">Name: Z → A</option>
+        </select>
+      </div>
+
+      <div class="filter-card">
+        <h3>Tags</h3>
+        <div class="tags" id="tagBox">
+          <!-- injected by JS -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- Products -->
+    <section class="products">
+      <div class="products-top">
+        <h2 id="resultTitle">All Products</h2>
+        <span id="resultCount" class="muted">0 items</span>
+      </div>
+      <div id="products" class="grid">
+        <!-- cards injected by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Rohit Kumar</h4>
+        <p>Modern commerce UI. Fully responsive. Built with love ❤️</p>
+      </div>
+      <div>
+        <h5>Help</h5>
+        <ul>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Follow</h5>
+        <div class="social">
+          <a href="#"><i class="ri-instagram-line"></i></a>
+          <a href="#"><i class="ri-facebook-circle-line"></i></a>
+          <a href="#"><i class="ri-twitter-x-line"></i></a>
+          <a href="#"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footnote">© <span id="year">
+    </span> Rohit Kumar • All Rights Reserved</div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-head">
+        <h3>Your Bag</h3>
+        <button class="icon-btn" id="closeCart" aria-label="Close cart"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="cart-items" id="cartItems"><!-- items injected --></div>
+      <div class="cart-foot">
+        <div class="cart-total-row">
+          <span>Subtotal</span><strong id="cartSubtotal">₹0</strong>
+        </div>
+        <p class="muted">Taxes & shipping calculated at checkout (demo).</p>
+        <button class="checkout-btn">Checkout</button>
+      </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+  </div>
+
+  <div class="developer-credit">
+  <p>Website Designed & Developed By <strong>Rohit Kumar</strong></p>
+  <p><i class="fas fa-phone-alt"></i><a href="+91 82945 70597 ">+91 82945 70597 </a> 
+     <i class="fas fa-envelope"></i> <a href="mailto:rohitprajapati829457@gmail.com">rohitprajapati829457@gmail.com</a>
+  </p>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
